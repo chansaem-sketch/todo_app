@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘 할 일</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <img src="images/logo.svg" alt="" class="logo" width="48" height="48">
+      <div>
+        <h1>오늘 할 일</h1>
+        <p class="today" id="today"></p>
+      </div>
+    </header>
+
+    <!-- 할 일 입력 -->
+    <form id="add-form" class="add-form">
+      <input type="text" id="new-text" placeholder="할 일을 입력하세요" maxlength="80" autocomplete="off" aria-label="할 일">
+      <input type="date" id="new-due" aria-label="마감일">
+      <button type="submit">추가</button>
+    </form>
+
+    <!-- 진행률 -->
+    <div class="progress">
+      <div class="progress-bar"><i id="progress-fill"></i></div>
+      <span id="progress-text">0 / 0</span>
+    </div>
+
+    <!-- 필터 -->
+    <nav class="filters" aria-label="보기">
+      <button data-filter="all" class="on">전체</button>
+      <button data-filter="active">해야 할 일</button>
+      <button data-filter="done">완료</button>
+    </nav>
+
+    <ul id="list" class="list"></ul>
+
+    <!-- 비어 있을 때 -->
+    <div id="empty" class="empty" hidden>
+      <img src="images/empty.svg" alt="" width="160" height="120">
+      <p id="empty-text">할 일이 없어요. 위에서 새로 추가해 보세요!</p>
+    </div>
+
+    <footer class="app-footer">
+      <span id="left-count"></span>
+      <button id="clear-done" type="button">완료한 일 지우기</button>
+    </footer>
+    <p class="tip">할 일을 두 번 누르면 내용을 고칠 수 있어요. 목록은 이 브라우저에 자동 저장됩니다.</p>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
